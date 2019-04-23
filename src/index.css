@@ -1,6 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
 }
+
+
 
 body {
   margin: 0;
@@ -119,6 +125,8 @@ body {
 .main {
   padding: 40px 10px;
   text-align: center;
+  min-height: 100vh;
+  display: grid;
 }
 
 .quizzes {
@@ -167,8 +175,42 @@ body {
   background-color: #12792333;
 }
 
+.loginForm {
+  display: grid;
+  width: 80%;
+  margin: 0 auto;
+  gap: 20px;
+  align-self: center;
+}
+
+.loginForm__input {
+  font-size: 1.2rem;
+  border: none;
+  border-bottom: solid 2px #a1a1a1
+}
+
+.loginForm__input:focus {
+  outline: none;
+  border-color: #4752e0;
+}
+
+.loginForm__button {
+  border: none;
+  color: #ffffff;
+  background-color: #4AB864;
+  padding: 10px 0;
+  font-size: 1.2rem;
+}
 
 
+
+.loginForm__button--register {
+  background-color: #3D84E1;
+}
+
+.loginForm__button--back {
+  background-color: #AB133D;
+}
 
 /*ANIMACJE*/
 
