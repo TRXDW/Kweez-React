@@ -124,6 +124,7 @@ body {
 
 .main {
   padding: 40px 10px;
+  padding-top: 60px;
   text-align: center;
   min-height: 100vh;
   display: grid;
@@ -147,8 +148,6 @@ body {
 .quizzes__item:hover {
   opacity: .5;
 }
-
-/* RARITY */
 
 .quizzes__item--gold {
   border-color: #e4d062;
@@ -186,7 +185,7 @@ body {
 .loginForm__input {
   font-size: 1.2rem;
   border: none;
-  border-bottom: solid 2px #a1a1a1
+  border-bottom: solid 2px #a1a1a1;
 }
 
 .loginForm__input:focus {
@@ -200,6 +199,7 @@ body {
   background-color: #4AB864;
   padding: 10px 0;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 
@@ -210,6 +210,67 @@ body {
 
 .loginForm__button--back {
   background-color: #AB133D;
+}
+
+.loginForm__error {
+  background-color: #d45050;
+  color: #ffffff;
+  padding: 5px 0;
+}
+
+.quiz {
+  display: grid;
+  gap: 10px;
+}
+
+.quiz__question {
+  border: solid 2px #585758;
+  /* border-color: #585758;v */
+  min-height: 170px;
+}
+
+.quiz__quizName {
+  background-color: #585758;
+  color: #ffffff;
+}
+
+.quiz__text {
+  margin: 0;
+  padding: 20px 10px;
+}
+
+.quiz__answer {
+  border: solid 2px #585758;
+  padding: 10px;
+  text-align: left;
+  align-self: stretch;
+}
+
+.quiz__answer--choose {
+  background-color: #978a8a;
+  color: #ffffff;
+}
+
+.quiz__answer--badAns {
+  background-color: #8a0505;
+  color: #ffffff;
+  border-color: #8a0505;
+}
+
+.quiz__answer--goodAns {
+  background-color: #098f14;
+  color: #ffffff;
+  border-color: #098f14;
+}
+
+.quiz__answer--active:hover {
+  opacity: .6;
+
+}
+
+.quiz__numOfQuestion {
+  height: fit-content;
+
 }
 
 /*ANIMACJE*/

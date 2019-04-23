@@ -6,7 +6,9 @@ class Login extends Component {
         inputLogin: "",
         inputPass: "",
         inputEmail: "",
-        register: false
+        register: false,
+        rightTestLogin: "dawid",
+        rightTestPass: "placki"
     }
 
     handleChange = e => {
@@ -26,11 +28,17 @@ class Login extends Component {
 
     }
 
+
     handleRegisterFormShow = () => {
         this.setState({
-            register: !this.state.register
+            register: !this.state.register,
+            inputLogin: "",
+            inputPass: ""
         })
+
+        this.props.handleLoginError();
     }
+
     render() {
         const { inputLogin, inputPass, inputEmail } = this.state;
         return (
@@ -41,6 +49,8 @@ class Login extends Component {
                         inputPass={inputPass}
                         onChange={this.handleChange}
                         onRegisterClick={this.handleRegisterFormShow}
+                        onSubmit={this.props.onLoginSubmit}
+                        loginError={this.props.loginError}
                     /> :
                     <RegisterForm
                         inputLogin={inputLogin}
@@ -48,6 +58,7 @@ class Login extends Component {
                         inputEmail={inputEmail}
                         onChange={this.handleChange}
                         onBackClick={this.handleRegisterFormShow}
+                        onSubmit={this.props.onRegisterSubmit}
                     />
                 }
             </main>

@@ -12,7 +12,8 @@ class App extends Component {
     rightTriangleAnim: "",
     circleAnim: "",
     animEnd: false,
-    isLogged: false
+    isLogged: false,
+    loginError: false
 
   }
 
@@ -46,15 +47,59 @@ class App extends Component {
   }
 
 
+  handleLoginSubmit = (e, inputLogin, inputPass) => {
+    inputLogin = inputLogin.toLowerCase();
+    e.preventDefault();
+    if ("dawid" === inputLogin && "placki" === inputPass) {
+      this.setState(prevState => ({
+        isLogged: !prevState.isLogged
+      }))
+    } else {
+      this.setState(prevState => ({
+        loginError: true
+      }))
+    }
+
+  }
+
+  handleRegisterSubmit = e => {
+    e.preventDefault();
+    this.setState({
+      loginError: false
+    })
+  }
+
+  handleLoginError = () => {
+    this.setState({
+      loginError: false
+    })
+  }
+
+
   render() {
     const { menuAnim, leftTriangleAnim, rightTriangleAnim, circleAnim, isLogged } = this.state;
     return (
-      <div className="App">
-        {!this.state.animEnd ? <StartScreen lTriangle={leftTriangleAnim} rTriangle={rightTriangleAnim} circle={circleAnim} onClick={this.handleStart} onAnimationEnd={this.handleChangeOnAnim} /> : false}
-        <MainNavigation onClick={this.handleShowNavigation} menuAnim={menuAnim} />
-        {isLogged ? <Main /> : <Login />}
+      <>
+        {/* {!this.state.animEnd ?
+          <StartScreen
+            lTriangle={leftTriangleAnim}
+            rTriangle={rightTriangleAnim}
+            circle={circleAnim}
+            onClick={this.handleStart}
+            onAnimationEnd={this.handleChangeOnAnim}
+          /> : false} */}
+        <MainNavigation
+          onClick={this.handleShowNavigation}
+          menuAnim={menuAnim}
+        />
+        {/* {isLogged ? <Main /> : <Login
+          onLoginSubmit={this.handleLoginSubmit}
+          loginError={this.state.loginError}
+          onRegisterSubmit={this.handleRegisterSubmit}
+          handleLoginError={this.handleLoginError} />} */}
+        <Main />
 
-      </div>
+      </>
     );
   }
 }

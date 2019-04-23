@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Quizzes from './Quizzes.js';
+import Quiz from './Quiz.js';
 
 
 
@@ -8,7 +9,8 @@ class Main extends Component {
     render() {
         return (
             <main className="main">
-                <Quizzes />
+                {/* <Quizzes /> */}
+                <Quiz />
             </main>
         )
     }

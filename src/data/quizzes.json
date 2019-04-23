@@ -1,0 +1,39 @@
+[{
+    "id": 1,
+    "quizName": "introduction",
+    "questions": [{
+        "questionId": 1,
+        "question": "Poprawna odpowiedź to A",
+        "answers": [
+            "Dobra Odpowiedź",
+            "Zła Odpowiedź",
+            "Zła Odpowiedź",
+            "Zła Odpowiedź"
+        ],
+        "correctAnswerIndex": 0,
+        "image": "default.jpg"
+    }, {
+        "questionId": 2,
+        "question": "Poprawna odpowiedź to B",
+        "answers": [
+            "Zła Odpowiedź",
+            "Dobra Odpowiedź",
+            "Zła Odpowiedź",
+            "Zła Odpowiedź"
+        ],
+        "correctAnswerIndex": 1,
+        "image": "default.jpg"
+    }, {
+        "questionId": 3,
+        "question": "Poprawna odpowiedź to C",
+        "answers": [
+            "A",
+            "C",
+            "D",
+            "B"
+        ],
+        "correctAnswerIndex": 2,
+        "image": "default.jpg"
+
+    }]
+}]
