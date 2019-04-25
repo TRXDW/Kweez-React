@@ -10,7 +10,8 @@ class Main extends Component {
         choosenQuiz: null,
         questionNum: 0,
         didAnswer: false,
-        sQuestion: []
+        sQuestions: [],
+        sQuestion: ['1', '1']
     }
 
     shuffle = array => {
@@ -41,22 +42,38 @@ class Main extends Component {
             choosenQuiz: quizSelected[0]
         }))
 
-        this.handleChooseQuestion(quizSelected[0])
+        this.handleShuffleQuestion(quizSelected[0]);
     }
 
-    handleChooseQuestion = choosenQuiz => {
+    handleShuffleQuestion = choosenQuiz => {
         const shuffledQuestions = this.shuffle([...choosenQuiz.questions]);
-        console.log(shuffledQuestions)
         this.setState(prevState => ({
-            sQuestion: shuffledQuestions[this.state.questionNum]
+            sQuestions: [...shuffledQuestions]
+        }))
+        this.handleChooseQuestion(shuffledQuestions);
+    }
+
+    handleChooseQuestion = shuffledQuestions => {
+        this.setState(prevState => ({
+            sQuestion: prevState.sQuestions[this.state.questionNum]
         }))
     }
 
     handleNextQuestion = () => {
         if (this.state.questionNum < this.state.choosenQuiz.questions.length - 1) {
             this.setState(prevState => ({
-                questionNum: prevState.questionNum + 1
+                questionNum: prevState.questionNum + 1,
+                sQuestion: prevState.sQuestions[prevState.questionNum + 1],
+                didAnswer: !prevState.didAnswer
             }))
+        } else {
+            this.setState({
+                choosenQuiz: null,
+                questionNum: 0,
+                didAnswer: false,
+                sQuestions: [],
+                sQuestion: []
+            })
         }
     }
 
@@ -77,7 +94,6 @@ class Main extends Component {
     render() {
         const { quizzes, choosenQuiz, questionNum, didAnswer, sQuestion } = this.state;
 
-        console.log(this.state.sQuestion);
         return (
 
             <main className="main">
