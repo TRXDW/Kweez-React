@@ -13,8 +13,8 @@ class App extends Component {
     circleAnim: "",
     animEnd: false,
     isLogged: false,
-    loginError: false
-
+    loginError: false,
+    users: null
   }
 
 
@@ -73,6 +73,14 @@ class App extends Component {
     this.setState({
       loginError: false
     })
+  }
+
+  componentDidMount() {
+    fetch('data/users.json')
+      .then(response => response.json())
+      .then(result => this.setState({
+        users: result
+      }))
   }
 
 

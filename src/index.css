@@ -244,6 +244,7 @@ body {
   padding: 10px;
   text-align: left;
   align-self: stretch;
+  font-size: 1rem;
 }
 
 .quiz__answer--choose {

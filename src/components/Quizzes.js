@@ -1,19 +1,14 @@
 import React from 'react';
 
-const Quizzes = () => {
+const Quizzes = props => {
+    const { quizzes } = props;
+
+    const qMap = quizzes.map(quiz => <button key={quiz.id} className="quizzes__item" onClick={() => props.onClick(quiz.id)}>{quiz.quizName}</button>)
+
     return (
+
         <div className="quizzes">
-            <div className="quizzes__item">Wstęp</div>
-            <div className="quizzes__item quizzes__item--gold">Zwierzęta</div>
-            <div className="quizzes__item quizzes__item--blue">Łacina</div>
-            <div className="quizzes__item quizzes__item--red">Polska</div>
-            <div className="quizzes__item quizzes__item--green">Muzyka</div>
-            <div className="quizzes__item quizzes__item--purple">Muzyka</div>
-            <div className="quizzes__item">Muzyka</div>
-            <div className="quizzes__item">Muzyka</div>
-            <div className="quizzes__item">Muzyka</div>
-            <div className="quizzes__item">Muzyka</div>
-            <div className="quizzes__item">Muzyka</div>
+            {qMap}
         </div>
     );
 }

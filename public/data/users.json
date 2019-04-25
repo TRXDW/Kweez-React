@@ -1,0 +1,13 @@
+[{
+    "id": 1,
+    "username": "daichi",
+    "name": "Dawid",
+    "email": "dawid@op.pl",
+    "quizzesProgress": [{
+        "quizId": 1,
+        "quizName": "Wprowadzenie",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "sumOfSolves": 0,
+        "rarity": "gray"
+    }]
+}]
