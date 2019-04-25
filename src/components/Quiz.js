@@ -21,11 +21,9 @@ function shuffle(array) {
 
 const Quiz = props => {
 
-    const { choosenQuiz, questionNum, didAnswer } = props;
-
+    const { choosenQuiz, questionNum, didAnswer, sQuestion } = props;
+    console.log(sQuestion.answers);
     const quizQuestionsLength = choosenQuiz.questions.length;
-    const shuffledQuestions = shuffle([...choosenQuiz.questions]);
-    const sQuestion = shuffledQuestions[questionNum];
 
     const answers = sQuestion.answers.map(answer =>
         <button
@@ -51,7 +49,7 @@ const Quiz = props => {
             {answers}
             {didAnswer ? <button onClick={props.onClickNext} className="quiz__next">Dalej</button> : <div></div>}
 
-            <div className="quiz__numOfQuestion">1/{quizQuestionsLength > 9 ? 10 : quizQuestionsLength}</div>
+            <div className="quiz__numOfQuestion">{questionNum + 1}/{quizQuestionsLength > 9 ? 10 : quizQuestionsLength}</div>
         </div>
 
     );

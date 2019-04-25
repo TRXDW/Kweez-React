@@ -28,25 +28,25 @@
         "correctAnswerIndex": 0
     }, {
         "questionId": 2,
-        "question": "Poprawna odpowiedź to B",
+        "question": "Jakiego koloru jest czerwony maluch?",
         "answers": [{
                 "answerId": 1,
-                "text": "Zła Odpowiedź",
+                "text": "Zielonego",
                 "letter": "A"
             },
             {
                 "answerId": 2,
-                "text": "Dobra Odpowiedź",
+                "text": "Czerwonego",
                 "letter": "B"
             },
             {
                 "answerId": 3,
-                "text": "Zła Odpowiedź",
+                "text": "Żółtego",
                 "letter": "C"
             },
             {
                 "answerId": 4,
-                "text": "Zła Odpowiedź",
+                "text": "Indygo",
                 "letter": "D"
             }
         ],
