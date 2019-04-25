@@ -269,6 +269,17 @@ body {
 
 }
 
+.quiz__next {
+  border: solid 2px #3b6929;
+  background-color: #1b834a;
+  padding: 10px;
+  text-align: center;
+  align-self: stretch;
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
 .quiz__numOfQuestion {
   height: fit-content;
 

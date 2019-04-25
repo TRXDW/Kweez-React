@@ -7,15 +7,19 @@ import Quiz from './Quiz.js';
 class Main extends Component {
     state = {
         quizzes: [],
-        choosenQuiz: 0,
-        questionNum: 0
+        choosenQuiz: null,
+        questionNum: 0,
+        didAnswer: false
     }
 
     handleChooseQuiz = (quizId) => {
-        this.setState(prevState => ({
-            choosenQuiz: quizId
-        }))
+        const { quizzes } = this.state;
 
+        const quizSelected = quizzes.filter(quiz => quiz.id === quizId);
+
+        this.setState(prevState => ({
+            choosenQuiz: quizSelected[0]
+        }))
     }
 
     handleNextQuestion = () => {
@@ -24,6 +28,13 @@ class Main extends Component {
                 questionNum: prevState + 1
             }))
         }
+    }
+
+    handleChooseAnswer = () => {
+        console.log('eki');
+        this.setState(prevState => ({
+            didAnswer: !prevState.didAnswer
+        }))
     }
 
     componentDidMount() {
@@ -35,17 +46,21 @@ class Main extends Component {
     }
 
     render() {
-        const { quizzes, choosenQuiz, questionNum } = this.state;
-
-        const quizSelected = quizzes.filter(quiz => quiz.id === choosenQuiz);
+        const { quizzes, choosenQuiz, questionNum, didAnswer } = this.state;
 
 
         return (
 
             <main className="main">
-                {choosenQuiz === 0
+                {!choosenQuiz
                     ? <Quizzes quizzes={quizzes} onClick={this.handleChooseQuiz} />
-                    : <Quiz questionNum={questionNum} onClickAnswer={this.handleNextQuestion} choosenQuiz={quizSelected[0]} />}
+                    : <Quiz
+                        didAnswer={didAnswer}
+                        questionNum={questionNum}
+                        onClickNext={this.handleNextQuestion}
+                        choosenQuiz={choosenQuiz}
+                        onClickAnswer={this.handleChooseAnswer} />}
+
             </main>
         )
     }
