@@ -1,41 +1,19 @@
 import React from 'react';
 
-function shuffle(array) {
-    let i = array.length,
-        j = 0,
-        temp;
-
-    while (i--) {
-
-        j = Math.floor(Math.random() * (i + 1));
-
-        // swap randomly chosen element with current element
-        temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-
-    }
-
-    return array;
-}
 
 const Quiz = props => {
 
-    const { choosenQuiz, questionNum, didAnswer, sQuestion } = props;
+    const { choosenQuiz, questionNum, didAnswer, sQuestion, selectedAnswer } = props;
     const quizQuestionsLength = choosenQuiz.questions.length;
 
     const answers = sQuestion.answers.map(answer =>
         <button
             key={answer.answerId}
-            className={true ? `quiz__answer ${didAnswer || 'quiz__answer--active'}` : false}
-            onClick={!didAnswer ? props.onClickAnswer : () => false}>
+            className={didAnswer ? `quiz__answer ${sQuestion.correctAnswerIndex === answer.answerId ? 'quiz__answer--goodAns' : `${selectedAnswer === answer.answerId ? "quiz__answer--badAns" : ""}`}` : "quiz__answer quiz__answer--active"}
+            onClick={!didAnswer ? (e) => props.onClickAnswer(e, answer.answerId) : () => false}>
             {`${answer.letter}) ${answer.text}`}
         </button>
     )
-
-
-
-
 
     return (
         <div className="quiz">

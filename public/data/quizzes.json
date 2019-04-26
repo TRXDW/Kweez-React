@@ -25,7 +25,7 @@
                     "letter": "D"
                 }
             ],
-            "correctAnswerIndex": 0
+            "correctAnswerIndex": 1
         }, {
             "questionId": 2,
             "question": "Jakiego koloru jest czerwony maluch?",
@@ -50,7 +50,7 @@
                     "letter": "D"
                 }
             ],
-            "correctAnswerIndex": 1
+            "correctAnswerIndex": 2
         }, {
             "questionId": 3,
             "question": "Poprawna odpowiedź to C",
@@ -75,7 +75,7 @@
                     "letter": "D"
                 }
             ],
-            "correctAnswerIndex": 2
+            "correctAnswerIndex": 3
         },
         {
             "questionId": 4,
@@ -101,7 +101,7 @@
                     "letter": "D"
                 }
             ],
-            "correctAnswerIndex": 2
+            "correctAnswerIndex": 3
         }
     ]
 }, {
@@ -131,7 +131,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 2,
         "question": "test",
@@ -156,7 +156,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 3,
         "question": "test",
@@ -181,7 +181,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 4,
         "question": "test",
@@ -206,7 +206,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 5,
         "question": "test",
@@ -231,7 +231,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 6,
         "question": "test",
@@ -256,7 +256,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 7,
         "question": "test",
@@ -281,7 +281,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 8,
         "question": "test",
@@ -306,7 +306,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 9,
         "question": "test",
@@ -331,9 +331,9 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
-        "questionId": 10,
+        "questionId": 11,
         "question": "test",
         "answers": [{
                 "answerId": 1,
@@ -356,7 +356,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }]
 }, {
     "id": 3,
@@ -385,7 +385,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 2,
         "question": "test",
@@ -410,7 +410,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 3,
         "question": "test",
@@ -435,7 +435,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 4,
         "question": "test",
@@ -460,7 +460,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 5,
         "question": "test",
@@ -485,7 +485,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 6,
         "question": "test",
@@ -510,7 +510,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 7,
         "question": "test",
@@ -535,7 +535,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 8,
         "question": "test",
@@ -560,7 +560,7 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
         "questionId": 9,
         "question": "test",
@@ -585,9 +585,9 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }, {
-        "questionId": 10,
+        "questionId": 11,
         "question": "test",
         "answers": [{
                 "answerId": 1,
@@ -610,6 +610,6 @@
                 "letter": "D"
             }
         ],
-        "correctAnswerIndex": 0
+        "correctAnswerIndex": 1
     }]
 }]

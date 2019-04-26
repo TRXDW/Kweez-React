@@ -11,7 +11,8 @@ class Main extends Component {
         questionNum: 0,
         didAnswer: false,
         sQuestions: [],
-        sQuestion: ['1', '1']
+        sQuestion: [],
+        selectedAnswer: null
     }
 
     shuffle = array => {
@@ -72,15 +73,19 @@ class Main extends Component {
                 questionNum: 0,
                 didAnswer: false,
                 sQuestions: [],
-                sQuestion: []
+                sQuestion: [],
+                cAns: ''
             })
         }
     }
 
-    handleChooseAnswer = () => {
+    handleChooseAnswer = (e, answerId) => {
+
         this.setState(prevState => ({
-            didAnswer: !prevState.didAnswer
+            didAnswer: !prevState.didAnswer,
+            selectedAnswer: answerId
         }))
+
     }
 
     componentDidMount() {
@@ -92,7 +97,7 @@ class Main extends Component {
     }
 
     render() {
-        const { quizzes, choosenQuiz, questionNum, didAnswer, sQuestion } = this.state;
+        const { quizzes, choosenQuiz, questionNum, didAnswer, sQuestion, selectedAnswer } = this.state;
 
         return (
 
@@ -105,7 +110,8 @@ class Main extends Component {
                         onClickNext={this.handleNextQuestion}
                         choosenQuiz={choosenQuiz}
                         onClickAnswer={this.handleChooseAnswer}
-                        sQuestion={sQuestion} />}
+                        sQuestion={sQuestion}
+                        selectedAnswer={selectedAnswer} />}
 
             </main>
         )
