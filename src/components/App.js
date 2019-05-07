@@ -14,7 +14,8 @@ class App extends Component {
     animEnd: false,
     isLogged: false,
     loginError: false,
-    users: null
+    users: null,
+    loggedUser: null
   }
 
 
@@ -50,16 +51,20 @@ class App extends Component {
   handleLoginSubmit = (e, inputLogin, inputPass) => {
     inputLogin = inputLogin.toLowerCase();
     e.preventDefault();
-    if ("dawid" === inputLogin && "placki" === inputPass) {
-      this.setState(prevState => ({
-        isLogged: !prevState.isLogged
-      }))
-    } else {
+
+    const users = [...this.state.users];
+    const user = users.filter(user => user.username === inputLogin && user.password === inputPass);
+
+    if (user.length !== 1) {
       this.setState(prevState => ({
         loginError: true
       }))
+    } else if (user[0].username === inputLogin && user[0].password === inputPass) {
+      this.setState(prevState => ({
+        isLogged: !prevState.isLogged,
+        loggedUser: user[0]
+      }))
     }
-
   }
 
   handleRegisterSubmit = e => {
@@ -85,22 +90,22 @@ class App extends Component {
 
 
   render() {
-    const { menuAnim, leftTriangleAnim, rightTriangleAnim, circleAnim, isLogged } = this.state;
+    const { menuAnim, leftTriangleAnim, rightTriangleAnim, circleAnim, isLogged, loggedUser } = this.state;
     return (
       <>
-        {!this.state.animEnd ?
+        {/* {!this.state.animEnd ?
           <StartScreen
             lTriangle={leftTriangleAnim}
             rTriangle={rightTriangleAnim}
             circle={circleAnim}
             onClick={this.handleStart}
             onAnimationEnd={this.handleChangeOnAnim}
-          /> : false}
+          /> : false} */}
         <MainNavigation
           onClick={this.handleShowNavigation}
           menuAnim={menuAnim}
         />
-        {isLogged ? <Main /> : <Login
+        {isLogged ? <Main loggedUser={loggedUser} /> : <Login
           onLoginSubmit={this.handleLoginSubmit}
           loginError={this.state.loginError}
           onRegisterSubmit={this.handleRegisterSubmit}

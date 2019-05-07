@@ -12,7 +12,8 @@ class Main extends Component {
         didAnswer: false,
         sQuestions: [],
         sQuestion: [],
-        selectedAnswer: null
+        selectedAnswer: null,
+        userQuizData: null
     }
 
     shuffle = array => {
@@ -36,11 +37,15 @@ class Main extends Component {
 
     handleChooseQuiz = (quizId) => {
         const { quizzes } = this.state;
+        const { loggedUser } = this.props;
 
         const quizSelected = quizzes.filter(quiz => quiz.id === quizId);
+        const userQuizData = loggedUser.quizzesProgress.find(quizProgress => quizProgress.quizId === quizId);
+        console.log(userQuizData);
 
         this.setState(prevState => ({
-            choosenQuiz: quizSelected[0]
+            choosenQuiz: quizSelected[0],
+            userQuizData
         }))
 
         this.handleShuffleQuestion(quizSelected[0]);
@@ -97,13 +102,14 @@ class Main extends Component {
     }
 
     render() {
-        const { quizzes, choosenQuiz, questionNum, didAnswer, sQuestion, selectedAnswer } = this.state;
-
+        const { quizzes, choosenQuiz, questionNum, didAnswer, sQuestion, selectedAnswer, userQuizData } = this.state;
+        const { loggedUser } = this.props;
+        // console.log(this.props.loggedUser);
         return (
 
             <main className="main">
                 {!choosenQuiz
-                    ? <Quizzes quizzes={quizzes} onClick={this.handleChooseQuiz} />
+                    ? <Quizzes quizzes={quizzes} onClick={this.handleChooseQuiz} loggedUser={loggedUser} />
                     : <Quiz
                         didAnswer={didAnswer}
                         questionNum={questionNum}
@@ -111,7 +117,8 @@ class Main extends Component {
                         choosenQuiz={choosenQuiz}
                         onClickAnswer={this.handleChooseAnswer}
                         sQuestion={sQuestion}
-                        selectedAnswer={selectedAnswer} />}
+                        selectedAnswer={selectedAnswer}
+                        userQuizData={userQuizData} />}
 
             </main>
         )

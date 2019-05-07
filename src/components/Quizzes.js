@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Quizzes = props => {
-    const { quizzes } = props;
+    const { quizzes, loggedUser } = props;
 
-    const qMap = quizzes.map(quiz => <button key={quiz.id} className="quizzes__item" onClick={() => props.onClick(quiz.id)}>{quiz.quizName}</button>)
+    const qMap = quizzes.map(quiz => <button key={quiz.id}
+        className={`quizzes__item quizzes__item--${loggedUser.quizzesProgress[quiz.id - 1].rarity}`}
+        onClick={() => props.onClick(quiz.id)}>{quiz.quizName}</button>)
 
     return (
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Quiz = props => {
 
-    const { choosenQuiz, questionNum, didAnswer, sQuestion, selectedAnswer } = props;
+    const { choosenQuiz, questionNum, didAnswer, sQuestion, selectedAnswer, userQuizData } = props;
     const quizQuestionsLength = choosenQuiz.questions.length;
 
     const answers = sQuestion.answers.map(answer =>
@@ -17,8 +17,8 @@ const Quiz = props => {
 
     return (
         <div className="quiz">
-            <div className="quiz__question">
-                <div className="quiz__quizName">{choosenQuiz.quizName}</div>
+            <div className={`quiz__question quiz__question--${userQuizData.rarity}`} >
+                <div className={`quiz__quizName quiz__quizName--${userQuizData.rarity}`}>{choosenQuiz.quizName}</div>
                 <p className="quiz__text">{sQuestion.question}</p>
 
             </div>
