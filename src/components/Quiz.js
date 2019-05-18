@@ -23,7 +23,7 @@ const Quiz = props => {
 
             </div>
             {answers}
-            {didAnswer ? <button onClick={props.onClickNext} className="quiz__next">{questionNum + 1 === quizQuestionsLength ? "Zakończ" : "Dalej"}</button> : <div></div>}
+            {didAnswer ? <button onClick={props.onClickNext} className="quiz__next">{questionNum + 1 === quizQuestionsLength ? "Podsumowanie" : "Dalej"}</button> : <div></div>}
 
             <div className="quiz__numOfQuestion">{questionNum + 1}/{quizQuestionsLength > 9 ? 10 : quizQuestionsLength}</div>
         </div>

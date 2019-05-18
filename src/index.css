@@ -338,6 +338,35 @@ body {
 
 }
 
+.summaryHeader {
+  align-self: end;
+}
+
+.summaryList {
+  list-style: none;
+  padding: 0;
+  align-self: center;
+}
+
+.summaryList__item {
+  font-size: 1.2rem;
+}
+
+.summaryList__item--bold {
+  font-weight: bold;
+}
+
+.summaryButton {
+  border: solid 2px #098f14;
+  color: #ffffff;
+  background-color: #4AB864;
+  height: 75px;
+  align-self: end;
+  padding: 10px 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 /*ANIMACJE*/
 
 .menuAnimIn {

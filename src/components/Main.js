@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Quizzes from './Quizzes.js';
 import Quiz from './Quiz.js';
+import Summary from './Summary.js'
 
 
 
@@ -13,7 +14,10 @@ class Main extends Component {
         sQuestions: [],
         sQuestion: [],
         selectedAnswer: null,
-        userQuizData: null
+        userQuizData: null,
+        numOfGoodAnswers: 0,
+        summaryExist: false,
+        avarageGoodAnswer: 0
     }
 
     shuffle = array => {
@@ -72,24 +76,59 @@ class Main extends Component {
                 sQuestion: prevState.sQuestions[prevState.questionNum + 1],
                 didAnswer: !prevState.didAnswer
             }))
-        } else {
-            this.setState({
+        } else if (this.state.summaryExist) {
+            this.setState(prevState => ({
                 choosenQuiz: null,
                 questionNum: 0,
                 didAnswer: false,
                 sQuestions: [],
                 sQuestion: [],
-                cAns: ''
-            })
+                cAns: '',
+                numOfGoodAnswers: 0,
+                avarageGoodAnswer: 0,
+                summaryExist: !prevState.summaryExist
+            }))
+        }
+        else {
+
+            this.handleCountAvarageGoodAnswer([...this.state.userQuizData.lastSolvesGoodAns]);
+            this.setState(prevState => ({
+                // choosenQuiz: null,
+                // questionNum: 0,
+                // didAnswer: false,
+                // sQuestions: [],
+                // sQuestion: [],
+                // cAns: '',
+                // numOfGoodAnswers: 0,
+                summaryExist: !prevState.summaryExist
+            }))
         }
     }
 
-    handleChooseAnswer = (e, answerId) => {
+    handleCountAvarageGoodAnswer = lastSolves => {
+        // console.log(lastSolves);
+        let avarageGoodAnswer = lastSolves.reduce((x, y) => x + y);
+        avarageGoodAnswer = avarageGoodAnswer / 10;
+        // console.log(result)
 
+        this.setState(prevState => ({
+            avarageGoodAnswer
+        }))
+    }
+
+    handleChooseAnswer = (e, answerId) => {
+        const { sQuestion } = this.state;
+        if (sQuestion.correctAnswerIndex === answerId) {
+            this.setState(prevState => ({
+                numOfGoodAnswers: prevState.numOfGoodAnswers + 1
+            }))
+
+        }
         this.setState(prevState => ({
             didAnswer: !prevState.didAnswer,
             selectedAnswer: answerId
         }))
+        console.log(this.state.numOfGoodAnswers);
 
     }
 
@@ -102,24 +141,33 @@ class Main extends Component {
     }
 
     render() {
-        const { quizzes, choosenQuiz, questionNum, didAnswer, sQuestion, selectedAnswer, userQuizData } = this.state;
+        const { quizzes, choosenQuiz, questionNum, didAnswer, sQuestion, selectedAnswer, userQuizData, numOfGoodAnswers, avarageGoodAnswer } = this.state;
         const { loggedUser } = this.props;
-        // console.log(this.props.loggedUser);
+        console.log(userQuizData);
+
+
         return (
 
             <main className="main">
                 {!choosenQuiz
                     ? <Quizzes quizzes={quizzes} onClick={this.handleChooseQuiz} loggedUser={loggedUser} />
-                    : <Quiz
-                        didAnswer={didAnswer}
-                        questionNum={questionNum}
-                        onClickNext={this.handleNextQuestion}
-                        choosenQuiz={choosenQuiz}
-                        onClickAnswer={this.handleChooseAnswer}
-                        sQuestion={sQuestion}
-                        selectedAnswer={selectedAnswer}
-                        userQuizData={userQuizData} />}
-
+                    : this.state.summaryExist
+                        ? <Summary
+                            numOfGoodAnswer={numOfGoodAnswers}
+                            rarity={userQuizData.rarity}
+                            quizQuestionsLength={choosenQuiz.questions.length}
+                            onClick={this.handleNextQuestion}
+                            avarageGoodAnswer={avarageGoodAnswer} />
+                        : <Quiz
+                            didAnswer={didAnswer}
+                            questionNum={questionNum}
+                            onClickNext={this.handleNextQuestion}
+                            choosenQuiz={choosenQuiz}
+                            onClickAnswer={this.handleChooseAnswer}
+                            sQuestion={sQuestion}
+                            selectedAnswer={selectedAnswer}
+                            userQuizData={userQuizData} />
+                }
             </main>
         )
     }
