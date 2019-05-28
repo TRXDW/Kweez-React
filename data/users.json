@@ -1,0 +1,68 @@
+[{
+    "id": 1,
+    "username": "daichi",
+    "password": "placki",
+    "name": "Dawid",
+    "email": "dawid@op.pl",
+    "quizzesProgress": [{
+        "quizId": 1,
+        "quizName": "Wprowadzenie",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "indexOfLastSolve": 0,
+        "rarity": "green"
+    }, {
+        "quizId": 2,
+        "quizName": "Indie",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "indexOfLastSolve": 0,
+        "rarity": "red"
+    }, {
+        "quizId": 3,
+        "quizName": "Test2",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "indexOfLastSolve": 0,
+        "rarity": "gray"
+    }, {
+        "quizId": 4,
+        "quizName": "Test3",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "indexOfLastSolve": 0,
+        "rarity": "gray"
+    }, {
+        "quizId": 5,
+        "quizName": "Test4",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "indexOfLastSolve": 0,
+        "rarity": "gray"
+    }, {
+        "quizId": 6,
+        "quizName": "Test5",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "indexOfLastSolve": 0,
+        "rarity": "gray"
+    }, {
+        "quizId": 7,
+        "quizName": "Test6",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "indexOfLastSolve": 0,
+        "rarity": "gray"
+    }, {
+        "quizId": 8,
+        "quizName": "Test7",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "indexOfLastSolve": 0,
+        "rarity": "gray"
+    }, {
+        "quizId": 9,
+        "quizName": "Test8",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "indexOfLastSolve": 0,
+        "rarity": "gray"
+    }, {
+        "quizId": 10,
+        "quizName": "Test9",
+        "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "indexOfLastSolve": 0,
+        "rarity": "gray"
+    }]
+}]
