@@ -29,7 +29,6 @@ class Main extends Component {
 
             j = Math.floor(Math.random() * (i + 1));
 
-            // swap randomly chosen element with current element
             temp = array[i];
             array[i] = array[j];
             array[j] = temp;
@@ -45,7 +44,6 @@ class Main extends Component {
 
         const quizSelected = quizzes.filter(quiz => quiz.id === quizId);
         const userQuizData = loggedUser.quizzesProgress.find(quizProgress => quizProgress.quizId === quizId);
-        console.log(userQuizData);
 
         this.setState(prevState => ({
             choosenQuiz: quizSelected[0],
@@ -90,26 +88,16 @@ class Main extends Component {
             }))
         }
         else {
-
             this.handleCountAvarageGoodAnswer([...this.state.userQuizData.lastSolvesGoodAns]);
             this.setState(prevState => ({
-                // choosenQuiz: null,
-                // questionNum: 0,
-                // didAnswer: false,
-                // sQuestions: [],
-                // sQuestion: [],
-                // cAns: '',
-                // numOfGoodAnswers: 0,
                 summaryExist: !prevState.summaryExist
             }))
         }
     }
 
     handleCountAvarageGoodAnswer = lastSolves => {
-        // console.log(lastSolves);
         let avarageGoodAnswer = lastSolves.reduce((x, y) => x + y);
         avarageGoodAnswer = avarageGoodAnswer / 10;
-        // console.log(result)
 
         this.setState(prevState => ({
             avarageGoodAnswer
@@ -128,7 +116,6 @@ class Main extends Component {
             didAnswer: !prevState.didAnswer,
             selectedAnswer: answerId
         }))
-        console.log(this.state.numOfGoodAnswers);
 
     }
 
@@ -140,10 +127,31 @@ class Main extends Component {
             })))
     }
 
+    rarityPromotion = () => {
+        const avarageGoodAnswer = this.state.avarageGoodAnswer;
+        const rarity = this.state.userQuizData.rarity;
+
+        if (avarageGoodAnswer <= 3 && rarity === "gray") {
+            return false;
+        } else if (avarageGoodAnswer <= 4 && rarity === "gray") {
+
+            return false;
+        } else if (avarageGoodAnswer <= 6 && rarity === "blue") {
+
+            return false;
+        } else if (avarageGoodAnswer <= 8 && rarity === "purple") {
+
+            return false;
+        } else if (avarageGoodAnswer <= 9 && rarity === "red") {
+            return false;
+        } else {
+            return false;
+        }
+    }
+
     render() {
         const { quizzes, choosenQuiz, questionNum, didAnswer, sQuestion, selectedAnswer, userQuizData, numOfGoodAnswers, avarageGoodAnswer } = this.state;
         const { loggedUser } = this.props;
-        console.log(userQuizData);
 
 
         return (
@@ -157,7 +165,9 @@ class Main extends Component {
                             rarity={userQuizData.rarity}
                             quizQuestionsLength={choosenQuiz.questions.length}
                             onClick={this.handleNextQuestion}
-                            avarageGoodAnswer={avarageGoodAnswer} />
+                            avarageGoodAnswer={avarageGoodAnswer}
+                            promotionExist={this.rarityPromotion}
+                        />
                         : <Quiz
                             didAnswer={didAnswer}
                             questionNum={questionNum}
@@ -166,7 +176,8 @@ class Main extends Component {
                             onClickAnswer={this.handleChooseAnswer}
                             sQuestion={sQuestion}
                             selectedAnswer={selectedAnswer}
-                            userQuizData={userQuizData} />
+                            userQuizData={userQuizData}
+                        />
                 }
             </main>
         )

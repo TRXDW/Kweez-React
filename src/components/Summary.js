@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Summary = props => {
+    const promExist = props.promotionExist();
     return (
         <React.Fragment>
             <h2 className="summaryHeader">Podsumowanie</h2>
@@ -15,7 +16,9 @@ const Summary = props => {
                     Rarity: <span className="summaryList__item summaryList__item--bold">{props.rarity}</span>
                 </li>
             </ul >
-            <div className="summaryPromotion"></div>
+            {promExist ? <div className="summaryPromotion">
+                !PROMOCJA TIERU!
+            </div> : <div></div>}
             <button className="summaryButton" onClick={props.onClick}>ZAKOŃCZ</button>
         </React.Fragment >
     );

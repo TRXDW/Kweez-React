@@ -93,24 +93,23 @@ class App extends Component {
     const { menuAnim, leftTriangleAnim, rightTriangleAnim, circleAnim, isLogged, loggedUser } = this.state;
     return (
       <>
-        {/* {!this.state.animEnd ?
+        {!this.state.animEnd ?
           <StartScreen
             lTriangle={leftTriangleAnim}
             rTriangle={rightTriangleAnim}
             circle={circleAnim}
             onClick={this.handleStart}
             onAnimationEnd={this.handleChangeOnAnim}
-          /> : false} */}
-        <MainNavigation
+          /> : false}
+        {/* <MainNavigation
           onClick={this.handleShowNavigation}
           menuAnim={menuAnim}
-        />
+        /> */}
         {isLogged ? <Main loggedUser={loggedUser} /> : <Login
           onLoginSubmit={this.handleLoginSubmit}
           loginError={this.state.loginError}
           onRegisterSubmit={this.handleRegisterSubmit}
           handleLoginError={this.handleLoginError} />}
-        {/* <Main /> */}
 
       </>
     );

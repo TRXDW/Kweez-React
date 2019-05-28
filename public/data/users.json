@@ -12,7 +12,7 @@
         "rarity": "green"
     }, {
         "quizId": 2,
-        "quizName": "Test1",
+        "quizName": "Indie",
         "lastSolvesGoodAns": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "indexOfLastSolve": 0,
         "rarity": "red"

@@ -367,6 +367,15 @@ body {
   cursor: pointer;
 }
 
+.summaryPromotion {
+  border: solid 2px #35acca;
+  font-size: 1.2rem;
+  align-self: center;
+  padding: 20px 0;
+  font-weight: bold;
+  background-color: #35acca55;
+}
+
 /*ANIMACJE*/
 
 .menuAnimIn {
